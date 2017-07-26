@@ -1,0 +1,29 @@
+@import "../../assets/styles/core/functions";
+@import "../../assets/styles/core/variables";
+
+.main-title{
+    background: $orange;
+    padding: 30px 0;
+    background: url($image-path + '/title-bg.png');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: repeat;
+    margin-bottom: 60px;
+}
+
+.main-content{
+    margin-top: 60px;
+
+    .container{
+        display: flex;
+
+        aside[app-sidebar]{
+            flex: 1;
+        }
+
+        main[app-content]{
+            flex: 2;
+            margin-left: 70px;
+        }
+    }
+}

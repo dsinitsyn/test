@@ -1,0 +1,14 @@
+@import "../../assets/styles/core/variables";
+@import "../../assets/styles/core/functions";
+
+.main-form{
+    border: 1px solid $gray;
+
+    &_content{
+        padding: 15px;
+    }
+    
+    p{
+        font-size: em(13);
+    }
+}

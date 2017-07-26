@@ -1,0 +1,53 @@
+@import "../../../assets/styles/core/functions";
+@import "../../../assets/styles/core/variables";
+
+.language-select{
+    font-size: em(12);
+    position: relative;
+
+    &_btn{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $gray;
+        padding-bottom: 5px;
+        min-width: 130px;
+        cursor: pointer;
+        transition: border-color .3s linear;
+
+        &:hover{
+            border-color: $gray-dark;
+        }
+
+        span{
+            margin: 0 8px;
+        }
+
+        &:after{
+            content: '';
+            margin-left: auto;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 7px 3.5px 0 3.5px;
+            border-color: $gray-dark transparent transparent transparent;
+        }
+    }
+
+    &_list{
+        position: absolute;
+        width: 100%;
+        border: 1px solid $gray;
+        border-top: none;
+        padding: 5px 0;
+        background: $white;
+        
+        li{
+            padding: 7px 5px;
+            cursor: pointer;
+
+            &:hover{
+                background: $gray-light;
+            }
+        }
+    }
+}

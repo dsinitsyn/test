@@ -1,0 +1,125 @@
+/*--------------------------------------/
+ General
+--------------------------------------*/
+$btn-font-family: $text-font;
+$btn-font-size: $base-font;
+$btn-height: 34px;
+$btn-border-radius: 2px;
+$btn-padding: 0 20px;
+$btn-font-weight: bold;
+
+/*--------------------------------------/
+ Colors
+--------------------------------------*/
+$btn-bg: #999 !default;
+$btn-text-color: #fff !default;
+
+button {
+    font-size: inherit;
+}
+
+.btn-pure{
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn{
+    position: relative;
+    display: inline-block;
+    font-family: $btn-font-family;
+    height: $btn-height;
+    font-weight: $btn-font-weight;
+    border-radius: $btn-border-radius;
+    padding: $btn-padding;
+    font-size: $btn-font-size;
+    cursor: pointer;
+    outline: none;
+    line-height: $btn-height - 1px;
+    white-space: nowrap;
+    transition: background .2s linear, color .2s linear;
+    border: none;
+
+    &:disabled, &.-disabled{
+        cursor: default;
+        opacity: 0.25;
+    }
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+@mixin create-button($text-color: $btn-text-color, $bg: $btn-bg) {
+    $bg-color: $bg;
+    $bg-hover: $bg - #111;
+
+    @extend .btn;
+    color: $text-color;
+    background: $bg-color;
+
+    &:hover{
+        background: $bg-hover;
+    }
+
+    &.-hollow{
+        color: $bg-color;
+        background: transparent;
+        border-color: $bg-color;
+
+        &:hover{
+            background: $bg-hover;
+            color: $text-color;
+        }
+    }
+}
+
+.btn-group{
+    &, .btn{
+        margin: 3px;
+    }
+}
+
+
+.btn-add{
+    @include create-button($dark, linear-gradient(45deg, $orange, $yellow));
+    width: 100%;
+    height: 35px;
+    text-align: left;
+    font-size: em(14);
+
+    &_indicator{
+        position: absolute;
+        width: 40px;
+        height: 100%;
+        background: $dark;
+        right: 0;
+        top: 0;
+
+        &:after, &:before{
+            content: '';
+            position: absolute;
+            background: $white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: height .3s linear;
+        }
+
+        &:before{
+            height: 2px;
+            width: 12px;
+        }
+
+        &:after{
+            width: 2px;
+            height: 12px;
+
+            .btn-add.-active &{
+                height: 0;
+            }
+        }
+    }
+
+}

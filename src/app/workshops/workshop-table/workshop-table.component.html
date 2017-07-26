@@ -1,0 +1,28 @@
+<div class="workshop-table">
+    <div class="workshop-table_header">
+        <span class="cell-2">Datum</span>
+        <span class="cell-1">Tijd</span>
+        <span class="cell-1">Workshop</span>
+        <span class="cell-1">Prijs</span>
+        <span class="cell-1">Locatie</span>
+        <span class="cell-1">Beschikbaar</span>
+    </div>
+    <ul class="workshop-table_body">
+        <li *ngFor="let training of trainings | orderBy: 'date'"
+            [ngClass]="{'-selected': training.selected}"
+            class="workshop-table_row"
+            (click)="onSelect(training)"
+        >
+            <span class="checkbox">
+                <input type="checkbox" [(ngModel)]="training.selected">
+                <span class="checkbox_square"></span>
+            </span>
+            <span class="cell-2">{{training.date | date: 'EEEE dd-MM-yyyy'}}</span>
+            <span class="cell-1">{{training.time}}</span>
+            <span class="cell-1">{{training.shorTitle}}</span>
+            <span class="cell-1">€ {{training.priceFrom}},- {{training.priceTo}}</span>
+            <span class="cell-1">{{training.location}}</span>
+            <span class="cell-1">{{training.availability}} plaatsen</span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,56 @@
+h1{
+    font-size: em(32);
+}
+
+h2{
+    font-size: em(28);
+}
+
+h3{
+    font-size: em(24);
+}
+
+h4{
+    font-size: em(20);
+}
+
+h5{
+    font-size: em(18);
+}
+
+h6{
+    font-size: em(16);
+}
+
+
+.heading{
+    font-family: $heading-font;
+    font-weight: bold;
+
+    &.-h1{
+        font-size: em(30);
+        font-weight: normal;
+    }
+
+    &.-h2{
+        font-size: em(25);
+    }
+
+    &.-h3{
+        font-size: em(21);
+    }
+
+    &.-h4{
+        font-size: em(18);
+    }
+
+    &.-h5{
+        font-size: em(16);
+        margin-bottom: 1em;
+    }
+
+    &.-h6{
+        font-size: em(13);
+        margin-bottom: 1em;
+    }
+}

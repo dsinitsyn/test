@@ -1,0 +1,7 @@
+
+export class Language {
+    constructor(public name: string,
+                public code: string,
+                public flag: string){
+    }
+}

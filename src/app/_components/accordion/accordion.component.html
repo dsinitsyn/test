@@ -1,0 +1,14 @@
+<ul class="accordion" data-module="accordion">
+    <li class="accordion_item"
+        *ngFor="let item of items"
+        [ngClass]="{'-active': item == activeItem}"
+        (click)="onClick(item)"
+    >
+        <p class="accordion_link">{{item.title}} <span class="accordion_indicator"></span></p>
+        <div class="accordion_content"
+             *ngIf="item == activeItem"
+             [@slideToggle]="item == activeItem">
+            <div class="accordion_inner" [innerHtml]="item.content"> </div>
+        </div>
+    </li>
+</ul>

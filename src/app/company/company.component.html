@@ -1,0 +1,87 @@
+<div [formGroup]="formGroup">
+    <div class="company">
+        <div class="form-line">
+            <div class="form-group">
+                <input formControlName="name" placeholder="Company name" type="text">
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-group company-street">
+                <input formControlName="street" placeholder="Street" type="text">
+            </div>
+            <div class="form-group company-number">
+                <input placeholder="Number" type="text">
+            </div>
+            <div class="form-group company-zip">
+                <input placeholder="Zipcode" type="text">
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-group">
+                <input placeholder="City" type="text">
+            </div>
+            <div class="form-group">
+                <select name="" id="">
+                    <option disabled selected value="">
+                        Country
+                    </option>
+                    <option value="">
+                        Ukraine
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-group">
+                <p>
+                    Geen BTW nummer? Neem dan contact op met 3M.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isBillingAdderss">
+        <h3 class="heading -h6">
+            Facruur adres
+        </h3>
+        <div class="form-line">
+            <div class="form-group">
+                <input placeholder="Company name" type="text">
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-group company-street">
+                <input placeholder="Street" type="text">
+            </div>
+            <div class="form-group company-number">
+                <input placeholder="Number" type="text">
+            </div>
+            <div class="form-group company-zip">
+                <input placeholder="Zipcode" type="text">
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-group">
+                <input placeholder="City" type="text">
+            </div>
+            <div class="form-group">
+                <select name="">
+                    <option disabled selected value="">
+                        Country
+                    </option>
+                    <option value="">
+                        Ukraine
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-line">
+        <div class="form-group">
+            <button class="btn-add" (click)="toggleBillingAddress()" [ngClass]="{'-active': isBillingAdderss}">
+                {{isBillingAdderss ? 'Verwijder alternatief factuur adres' :'Alternatief factuur adres' }}
+                <span class="btn-add_indicator"></span>
+            </button>
+        </div>
+    </div>
+</div>

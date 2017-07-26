@@ -1,0 +1,60 @@
+@import "../../../assets/styles/core/variables";
+@import "../../../assets/styles/core/functions";
+
+app-workshop-table.ng-invalid{
+    .workshop-table, .workshop-table_row{
+        border-color: $red;
+    }
+}
+
+.workshop-table{
+    font-size: em(12);
+    border-bottom: 1px solid $gray;
+    margin-bottom: 5px;
+    
+    &_header{
+        background: linear-gradient(45deg, $orange, $yellow);
+        padding: 15px 15px 15px 42px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &_body{
+        padding: 0 15px;
+    }
+    
+    &_row{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px solid $gray;
+        cursor: pointer;
+
+        &:last-child{
+            border-bottom: none;
+        }
+        
+        &.-selected{
+            font-weight: bold;
+        }
+    }
+
+    span{
+        display: flex;
+        align-items: center;
+    }
+    
+    .checkbox{
+        margin-right: 10px;
+    }
+
+    .cell-1{
+        flex: 1;
+        margin: 0 2px;
+    }
+
+    .cell-2{
+        margin: 0 2px;
+        flex: 2;
+    }
+}

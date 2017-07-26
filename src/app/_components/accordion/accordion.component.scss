@@ -1,0 +1,71 @@
+@import "../../../assets/styles/core/variables";
+@import "../../../assets/styles/core/functions";
+@import "../../../assets/styles/core/mixins";
+
+.accordion{
+    border-top: 1px solid $gray;
+    backface-visibility: hidden;
+    margin: 20px 0 30px;
+
+    &_indicator{
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        background: $dark;
+        right: 0;
+        top: 0;
+
+        &:after, &:before{
+            content: '';
+            position: absolute;
+            background: $white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: height .3s linear;
+        }
+
+        &:before{
+            height: 3px;
+            width: 13px;
+        }
+
+        &:after{
+            width: 3px;
+            height: 13px;
+
+            .accordion_item.-active &{
+                height: 0;
+            }
+        }
+    }
+
+    &_item{
+        border: 1px solid $gray;
+        border-top: none;
+    }
+
+    &_link{
+        width: 100%;
+        display: inline-block;
+        font-weight: 600;
+        position: relative;
+        padding: 15px 40px 15px 20px;
+        cursor: pointer;
+
+        .accordion_item.-active &{
+            background: url($image-path + '/texture-bg.png') $white;
+            border-bottom: 1px solid $gray;
+            cursor: default;
+        }
+    }
+
+    &_content{
+        overflow: hidden;
+        @include text-content(em(12), 1.5);
+    }
+
+    &_inner{
+        padding: em(25) em(50);
+    }
+}

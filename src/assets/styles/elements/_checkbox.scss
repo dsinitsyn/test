@@ -1,0 +1,48 @@
+.checkbox{
+    cursor: pointer;
+
+    input[type=checkbox]{
+        display: none;
+    }
+
+    &_square{
+        border: 1px solid $dark;
+        width: 17px;
+        height: 17px;
+        display: inline-block;
+        position: relative;
+
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background: $blue;
+            opacity: 0;
+            transition: opacity .1s linear;
+        }
+
+        &:after{
+            height: 11px;
+            width: 2px;
+            transform: rotate(40deg);
+            top: 2px;
+            left: 8px;
+        }
+
+        &:before{
+            height: 5px;
+            width: 2px;
+            transform: rotate(-45deg);
+            top: 6px;
+            left: 3px;
+        }
+    }
+
+
+    input[type=checkbox]:checked + .checkbox_square{
+        &:before, &:after{
+            opacity: 1;
+        }
+    }
+}

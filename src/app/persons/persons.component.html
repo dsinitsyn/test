@@ -1,0 +1,28 @@
+<div *ngFor="let person of formPersons.controls; let i = index" [formGroup]="formPersons.controls[i]">
+    <h3 class="heading -h6">
+        Persoon {{i+1}}
+    </h3>
+    <div class="form-line">
+        <div class="form-group">
+            <input formControlName="name" placeholder="Name" type="text">
+        </div>
+    </div>
+    <div class="form-line">
+        <div class="form-group">
+            <input formControlName="email" placeholder="Email" type="text">
+        </div>
+        <div class="form-group">
+            <input formControlName="phone" placeholder="Phone number" type="text">
+        </div>
+    </div>
+</div>
+
+
+<div class="form-line">
+    <div class="form-group">
+        <button class="btn-add" (click)="addPerson()">
+            Voeg een extra persoon toe
+            <span class="btn-add_indicator"></span>
+        </button>
+    </div>
+</div>
