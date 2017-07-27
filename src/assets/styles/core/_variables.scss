@@ -2,7 +2,7 @@
  Colors
 --------------------------------------*/
 $dark: #3f3f3f;
-$red: #ff0000;
+$red: #e13a47;
 $blue: #348dc7;
 $green: #68A5A3;
 $gray: #cccccc;
@@ -12,9 +12,13 @@ $orange: #fbb515;
 $yellow: #ffda07;
 $white: #fff;
 
+/*--------------------------------------/
+ Gradionts
+--------------------------------------*/
+$g-orange-yellow: linear-gradient(45deg, $orange, $yellow);
 
 $base-color: $dark;
-$primary-color: $green;
+$primary-color: $red;
 
 
 /*--------------------------------------/

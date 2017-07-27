@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Workshop } from "../workshop.model";
 import { StorageService } from "../../_services/storage.service";
-import { FormArray, FormControl } from "@angular/forms";
+import { FormArray, FormControl, Validators } from "@angular/forms";
 import { Training } from "../training.model";
 
 @Component({
@@ -11,7 +11,7 @@ import { Training } from "../training.model";
     encapsulation: ViewEncapsulation.None
 })
 export class WorkshopTableComponent {
-    @Input('control') formWorkshops: FormArray;
+    @Input('array') formWorkshops: FormArray;
     workshops: Workshop[] = [];
     trainings: Training[] = [];
 
@@ -24,6 +24,10 @@ export class WorkshopTableComponent {
         this.workshops.forEach(workshop => {
             this.trainings = this.trainings.concat(workshop.trainings);
         })
+    }
+
+    defineFormArray(){
+        return new FormArray([], Validators.required)
     }
 
     onSelect(training){

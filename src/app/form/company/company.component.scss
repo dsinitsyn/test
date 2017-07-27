@@ -1,0 +1,32 @@
+@import "../../../assets/styles/core/media";
+@import "../../../assets/styles/core/variables";
+
+.company-street{
+    flex-basis: calc(50% + 10px);
+
+    @include media(480){
+        flex-basis: 100%;
+    }
+}
+
+.company-building{
+    flex-basis: 20%;
+
+    @include media(480){
+        flex-basis: calc(50% - 3px);
+        margin-right: 3px;
+    }
+}
+
+.company-zip{
+    flex-basis: 30%;
+
+    @include media(480){
+        flex-basis: calc(50% - 3px);
+        margin-left: 3px;
+    }
+}
+
+.company{
+    margin-bottom: 25px;
+}

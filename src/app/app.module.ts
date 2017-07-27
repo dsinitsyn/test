@@ -16,8 +16,13 @@ import { FormComponent } from './form/form.component';
 import { WorkshopTableComponent } from './workshops/workshop-table/workshop-table.component';
 import { StorageService } from "./_services/storage.service";
 import { OrderModule } from "ngx-order-pipe";
-import { PersonsComponent } from './persons/persons.component';
-import { CompanyComponent } from './company/company.component';
+import { PersonsComponent } from './form/persons/persons.component';
+import { CompanyComponent } from './form/company/company.component';
+import { AdditionComponent } from './form/addition/addition.component';
+import { InfoTabsComponent } from './info-tabs/info-tabs.component';
+import { TabsComponent } from './_components/tabs/tabs.component';
+import { SelectModule } from "ng2-select";
+import { ApiService } from "./_services/api.service";
 
 @NgModule({
     declarations: [
@@ -32,7 +37,10 @@ import { CompanyComponent } from './company/company.component';
         FormComponent,
         WorkshopTableComponent,
         PersonsComponent,
-        CompanyComponent
+        CompanyComponent,
+        AdditionComponent,
+        InfoTabsComponent,
+        TabsComponent
     ],
     imports: [
         BrowserModule,
@@ -40,9 +48,10 @@ import { CompanyComponent } from './company/company.component';
         HttpModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        OrderModule
+        OrderModule,
+        SelectModule
     ],
-    providers: [StorageService],
+    providers: [ApiService, StorageService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

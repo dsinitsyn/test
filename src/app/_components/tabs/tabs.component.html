@@ -1,0 +1,11 @@
+<ul class="tabs">
+    <li class="tab" *ngFor="let item of items" [ngClass]="{'-active': item == activeItem}">
+        <a class="tab_link" (click)="onClick(item)">{{item.title}}</a>
+    </li>
+</ul>
+<div class="tabs-content">
+    <div class="tab-pane" *ngFor="let item of items">
+        <div class="text-content" *ngIf="item == activeItem" [@fade]="item != activeItem" [innerHtml]="item.content">
+        </div>
+    </div>
+</div>

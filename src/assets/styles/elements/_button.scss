@@ -2,7 +2,7 @@
  General
 --------------------------------------*/
 $btn-font-family: $text-font;
-$btn-font-size: $base-font;
+$btn-font-size: em(14);
 $btn-height: 34px;
 $btn-border-radius: 2px;
 $btn-padding: 0 20px;
@@ -14,7 +14,7 @@ $btn-font-weight: bold;
 $btn-bg: #999 !default;
 $btn-text-color: #fff !default;
 
-button {
+button{
     font-size: inherit;
 }
 
@@ -49,6 +49,29 @@ button {
     &:hover{
         text-decoration: none;
     }
+
+    &.-large{
+        padding: 10px 28px;
+        height: 48px;
+        line-height: initial;
+    }
+
+    &.-arrow{
+        padding-right: 4em;
+
+        &:after{
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 0 5px 8px;
+            border-color: transparent transparent transparent $white;
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
 }
 
 @mixin create-button($text-color: $btn-text-color, $bg: $btn-bg) {
@@ -81,13 +104,17 @@ button {
     }
 }
 
+.btn-primary{
+    @include create-button($white, $red);
+}
 
 .btn-add{
-    @include create-button($dark, linear-gradient(45deg, $orange, $yellow));
+    @include create-button($dark, $g-orange-yellow);
     width: 100%;
     height: 35px;
     text-align: left;
     font-size: em(14);
+    border-radius: 0;
 
     &_indicator{
         position: absolute;

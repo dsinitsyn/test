@@ -1,9 +1,28 @@
 @import "../../../assets/styles/core/functions";
 @import "../../../assets/styles/core/variables";
+@import "../../../assets/styles/core/media";
 
 .language-select{
     font-size: em(12);
     position: relative;
+    padding: 10px;
+
+    &_flag{
+        width: 18px;
+        
+        @include media(480){
+            width: 30px;
+            margin-right: 10px;
+        }
+    }
+
+    &_name{
+        margin: 0 8px;
+
+        @include media(480){
+            display: none;
+        }
+    }
 
     &_btn{
         display: flex;
@@ -13,14 +32,19 @@
         min-width: 130px;
         cursor: pointer;
         transition: border-color .3s linear;
+        position: relative;
+        z-index: 1;
+
+        @include media(480){
+            min-width: 0;
+            border: none;
+        }
 
         &:hover{
             border-color: $gray-dark;
         }
 
-        span{
-            margin: 0 8px;
-        }
+
 
         &:after{
             content: '';
@@ -37,13 +61,36 @@
         position: absolute;
         width: 100%;
         border: 1px solid $gray;
-        border-top: none;
-        padding: 5px 0;
+        padding: 35px 0 0 0;
         background: $white;
-        
+        top: 0;
+        left: 0;
+        z-index: 0;
+
+        @include media(480){
+            left: auto;
+            top: auto;
+            right: 0;
+            width: auto;
+            padding-top: 0;
+        }
+
         li{
-            padding: 7px 5px;
+            padding: 7px 10px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            .language-select_name{
+                margin: 0 8px;
+
+                @include media(480){
+                    display: block;
+                    font-size: 16px;
+                    padding-right: 5px;
+                    margin: 0;
+                }
+            }
 
             &:hover{
                 background: $gray-light;

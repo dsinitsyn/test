@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { CompanyComponent } from "../company/company.component";
+import { CompanyComponent } from "./company/company.component";
+import { AdditionComponent } from "./addition/addition.component";
+import { WorkshopTableComponent } from "../workshops/workshop-table/workshop-table.component";
+import { PersonsComponent } from "./persons/persons.component";
 
 @Component({
     selector: 'app-form',
@@ -9,7 +12,11 @@ import { CompanyComponent } from "../company/company.component";
     encapsulation: ViewEncapsulation.None
 })
 export class FormComponent implements OnInit {
+
     @ViewChild(CompanyComponent) companyComponent: CompanyComponent;
+    @ViewChild(WorkshopTableComponent) workshopTableComponent: WorkshopTableComponent;
+    @ViewChild(AdditionComponent) additionComponent: AdditionComponent;
+    @ViewChild(PersonsComponent) personsComponent: PersonsComponent;
     form: FormGroup;
 
 
@@ -18,9 +25,10 @@ export class FormComponent implements OnInit {
 
     initFrom(){
         this.form = this.fb.group({
-            workshops: this.fb.array([], Validators.required),
-            persons: this.fb.array([]),
-            company: this.companyComponent.defineFormGroup()
+            workshops: this.workshopTableComponent.defineFormArray(),
+            persons: this.personsComponent.defineFormArray(),
+            company: this.companyComponent.defineFormGroup(),
+            addition: this.additionComponent.defineFormGroup()
         });
     }
 

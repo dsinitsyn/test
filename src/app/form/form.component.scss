@@ -1,14 +1,44 @@
 @import "../../assets/styles/core/variables";
 @import "../../assets/styles/core/functions";
+@import "../../assets/styles/core/media";
 
 .main-form{
     border: 1px solid $gray;
+    margin-bottom: 35px;
+    background: $white;
 
     &_content{
         padding: 15px;
+    }
+
+    &_submit-btn{
+        width: calc(50% - 5px);
+        margin-top: 15px;
+        text-align: left;
+
+        @include media(640){
+            width: auto;
+        }
+
+        @include media(480){
+            width: 100%;
+        }
     }
     
     p{
         font-size: em(13);
     }
+
+    app-company{
+        margin-bottom: 15px;
+        display: block;
+    }
+    
+    app-addition{
+        background: $white;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
 }
+

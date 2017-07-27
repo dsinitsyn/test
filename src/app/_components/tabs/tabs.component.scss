@@ -1,0 +1,69 @@
+@import "../../../assets/styles/core/variables";
+@import "../../../assets/styles/core/mixins";
+@import "../../../assets/styles/core/media";
+
+.tabs{
+    padding: 0 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include media(480){
+        padding: 0;
+    }
+}
+
+.tab{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    opacity: .6;
+    transition: opacity .3s linear;
+
+    &:before{
+        content: '';
+        margin: 0 20px;
+        display: inline-block;
+        height: 35px;
+        width: 1px;
+        background: $dark;
+    }
+
+    &.-active{
+        opacity: 1;
+    }
+
+    &_link{
+        cursor: pointer;
+        padding-bottom: 5px;
+        @include underline-hover();
+
+        .tab.-active &{
+            cursor: default;
+
+            &:before{
+                width: 100%;
+                left: 0;
+            }
+        }
+    }
+
+    &:first-child{
+        &:before{
+            display: none;
+        }
+    }
+}
+
+.tabs-content{
+    margin-top: 20px;
+}
+
+.tab-pane{
+    display: block;
+
+    .text-content{
+        font-size: 13px;
+        line-height: 1.8;
+    }
+}

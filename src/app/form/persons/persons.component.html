@@ -1,4 +1,7 @@
-<div *ngFor="let person of formPersons.controls; let i = index" [formGroup]="formPersons.controls[i]">
+<div class="person" *ngFor="let person of formPersons.controls; let i = index"
+     [formGroup]="formPersons.controls[i]"
+     [@slideToggle]>
+
     <h3 class="heading -h6">
         Persoon {{i+1}}
     </h3>
@@ -16,8 +19,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="form-line">
     <div class="form-group">
         <button class="btn-add" (click)="addPerson()">

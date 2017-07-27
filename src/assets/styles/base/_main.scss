@@ -7,6 +7,10 @@ body{
     font-family: $text-font;
     font-size: $base-font;
     color: $base-color;
+    background: url($image-path + '/main-bg.jpg');
+    background-size: 1920px;
+    background-position: center;
+    background-attachment: fixed;
 
 }
 
@@ -15,6 +19,10 @@ body{
     max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
+    
+    @include media(480){
+        padding: 0 10px;
+    }
 }
 
 .text-content{

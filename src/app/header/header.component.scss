@@ -1,5 +1,17 @@
+@import "../../assets/styles/core/variables";
+@import "../../assets/styles/core/media";
+
 .header{
     padding: 30px 0;
+    background: $white;
+
+    @include media(640){
+        padding: 20px 0;
+    }
+
+    @include media(480){
+        padding: 15px 0;
+    }
 
     .container{
         display: flex;
@@ -7,9 +19,25 @@
         justify-content: space-between;
     }
 
-    &_logo{
-        img{
-            height: 45px;
+    .logo-image{
+        height: 45px;
+
+
+        @include media(640){
+            height: 35px;
         }
+
+        @include media(480){
+            display: none;
+        }
+
+        &.-mobile{
+            display: none;
+
+            @include media(480){
+                display: block;
+            }
+        }
+
     }
 }

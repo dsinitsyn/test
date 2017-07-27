@@ -1,11 +1,71 @@
 @import "../../../assets/styles/core/variables";
 @import "../../../assets/styles/core/functions";
+@import "../../../assets/styles/core/media";
 
 app-workshop-table.ng-invalid{
-    .workshop-table, .workshop-table_row{
+    .workshop-table, .workshop-row{
         border-color: $red;
     }
 }
+
+.workshop-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid $gray;
+    cursor: pointer;
+
+    @include media(640){
+        flex-wrap: wrap;
+        padding-left: 30px;
+
+        .checkbox{
+            position: absolute;
+            left: 15px;
+            margin-top: 4px;
+        }
+    }
+
+    &:last-child{
+        border-bottom: none;
+    }
+
+    &.-selected{
+        font-weight: bold;
+    }
+
+    &_price{
+        white-space: nowrap;
+        margin-right: 5px;
+    }
+
+}
+
+.workshop-cell{
+    flex: 1;
+    margin: 0 2px;
+
+    &.-large{
+        flex: 2;
+    }
+
+    &.-nowrap{
+        white-space: nowrap;
+    }
+
+    @include media(640){
+        margin: 0;
+        flex: 0 0 40%;
+        line-height: 1.7;
+
+        &:nth-child(2n){
+            flex: 0 0 60%;
+            padding-right: 5px;
+        }
+    }
+}
+
+
 
 .workshop-table{
     font-size: em(12);
@@ -13,48 +73,29 @@ app-workshop-table.ng-invalid{
     margin-bottom: 5px;
     
     &_header{
-        background: linear-gradient(45deg, $orange, $yellow);
+        background: $g-orange-yellow;
         padding: 15px 15px 15px 42px;
         display: flex;
         justify-content: space-between;
+        
+        @include media(640){
+            padding: 4px;
+
+            .workshop-cell{
+                font-size: 0;
+            }
+        }
     }
 
     &_body{
         padding: 0 15px;
+        position: relative;
     }
     
-    &_row{
-        display: flex;
-        justify-content: space-between;
-        padding: 15px 0;
-        border-bottom: 1px solid $gray;
-        cursor: pointer;
-
-        &:last-child{
-            border-bottom: none;
-        }
-        
-        &.-selected{
-            font-weight: bold;
-        }
-    }
 
     span{
         display: flex;
         align-items: center;
     }
-    
-    .checkbox{
-        margin-right: 10px;
-    }
 
-    .cell-1{
-        flex: 1;
-        margin: 0 2px;
-    }
-
-    .cell-2{
-        margin: 0 2px;
-        flex: 2;
-    }
 }

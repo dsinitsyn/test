@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Workshop } from "../workshops/workshop.model";
 import { Training } from "../workshops/training.model";
+import { ApiService } from "./api.service";
 
 @Injectable()
 export class StorageService {
@@ -148,8 +149,24 @@ export class StorageService {
             ]
         )
     ];
+    countries: any[] = [];
 
-    constructor(){
+
+    constructor(private _api: ApiService){
+        this._api.get('https://restcountries.eu/rest/v2/all').then((data: any[]) => {
+            this.countries = data;
+        });
     }
 
+    getCountries(): Promise<any[]>{
+        return new Promise(resolve =>{
+            (this.countries.length)
+                ? resolve(this.countries)
+                : this._api.get('https://restcountries.eu/rest/v2/all').then(
+                    (data: any[]) =>{
+                        resolve(this.countries);
+                    }
+                )
+        })
+    }
 }

@@ -2,14 +2,17 @@
     Ja, ik schrijf me in voor de volgende 3M Signmaker Training:
 </h2>
 <form [formGroup]="form" class="main-form" action="">
-    <app-workshop-table formArrayName="workshops" [control]="this.form.get('workshops')"></app-workshop-table>
+    <app-workshop-table formArrayName="workshops" [array]="this.form.get('workshops')"></app-workshop-table>
     <div class="main-form_content">
         <h2 class="heading -h5">
             Company informatie
         </h2>
         <app-persons formArrayName="persons" [control]="this.form.get('persons')"></app-persons>
         <app-company [group]="this.form.get('company')"></app-company>
-        <button (click)="submit()">SUBBMIT</button>
+        <h2 class="heading -h5">
+            Aanvullende informatie
+        </h2>
+        <app-addition [group]="this.form.get('addition')"></app-addition>
+        <button class="btn-primary -large -arrow main-form_submit-btn" (click)="submit()">Inschrijven voor training</button>
     </div>
-
 </form>

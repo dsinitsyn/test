@@ -1,7 +1,17 @@
 @import "../../../assets/styles/core/variables";
+@import "../../../assets/styles/core/media";
 
 .sidebar{
     padding: 30px;
-    background: url($image-path + '/texture-bg.png');
+    background: url($image-path + '/texture-bg.png') $white;
     max-width: 290px;
+
+    @include media(1024){
+        padding: 20px;
+    }
+
+    @include media(860){
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
 }

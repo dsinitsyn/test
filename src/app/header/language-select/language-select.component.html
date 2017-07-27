@@ -1,12 +1,12 @@
 <div class="language-select">
     <button (click)="onToggle()" class="language-select_btn btn-pure">
-        <img [src]="currentLanguage.flag" alt="">
-        <span>{{currentLanguage.name}}</span>
+        <img class="language-select_flag" [src]="currentLanguage.flag" alt="">
+        <span class="language-select_name">{{currentLanguage.name}}</span>
     </button>
-    <ul *ngIf="isSelectOpened" class="language-select_list">
-        <li *ngFor="let language of languages" (click)="onSelect(language)">
-            <img [src]="language.flag" alt="">
-            <span>{{language.name}}</span>
+    <ul *ngIf="isSelectOpened" [@fade]="isSelectOpened" class="language-select_list">
+        <li *ngFor="let language of remainingLanguages" (click)="onSelect(language)">
+            <img class="language-select_flag" [src]="language.flag" alt="">
+            <span class="language-select_name">{{language.name}}</span>
         </li>
     </ul>
 </div>
